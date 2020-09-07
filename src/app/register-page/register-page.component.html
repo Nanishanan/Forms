@@ -1,0 +1,94 @@
+<div style="background-color: midnightblue;">
+    <h1 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: mistyrose;">
+        Registration Form </h1>
+
+    <div class="row mx-0">
+        <div class="col-12 col-md-4 offset-md-4 px-0">
+
+            <form [formGroup]="userForm" (ngSubmit)="submit()" class="form-css">
+                <div class="form-group forms-det">
+                    <label for="name" class="forms-label"> Name </label>
+                    <input type="text" formControlName="name" class="form-control">
+                </div>
+                <div class="form-group forms-det">
+                    <label for="username" class="forms-label"> UserName </label>
+                    <input type="text" formControlName="username" class="form-control">
+                    <p *ngIf="uname.pending">Checking Uniqueness of name.... </p>
+                    <div class="error-msg" *ngIf="uname.touched && uname.invalid">
+                        <p *ngIf="uname.errors.required"> UserName is Mandatory </p>
+                        <p *ngIf="uname.errors.asyncUnique"> UserName Must be unique </p>
+                        <!-- <p *ngIf="uname.errors.unique"> UserName Must be unique</p> -->
+                    </div>
+                </div>
+                <div class="form-group forms-det">
+                    <label for="email" class="forms-label"> Email </label>
+                    <input type="text" formControlName="email" class="form-control">
+                </div>
+                <div class="form-group forms-det">
+                    <label for="phone" class="forms-label"> Phone </label>
+                    <input type="text" formControlName="phone" class="form-control">
+                    <div class="error-msg" *ngIf="phone.touched && phone.invalid">
+                        <p *ngIf="phone.errors.required"> Phone Number is Mandatory </p>
+                        <p *ngIf="phone.errors.minlength"> Phone Number should be 10 digits </p>
+                        <p *ngIf="phone.errors.maxlength"> Phone Number should be 10 digits </p>
+                        <p *ngIf="phone.errors.pattern"> Phone Number should be only in digits </p>
+                    </div>
+                </div>
+                <fieldset formGroupName="address">
+                    <legend>Address</legend>
+                    <div class="form-group forms-det">
+                        <label for="street" class="forms-label"> Street </label>
+                        <input type="text" formControlName="street" class="form-control">
+                    </div>
+                    <div class="form-group forms-det">
+                        <label for="city" class="forms-label"> City </label>
+                        <input type="text" formControlName="city" class="form-control">
+                    </div>
+                    <fieldset formGroupName="geo">
+                        <legend>Geo</legend>
+                        <div class="form-group forms-det">
+                            <label for="lat" class="forms-label"> Latitiude </label>
+                            <input type="text" formControlName="lat" class="form-control">
+                        </div>
+                        <div class="form-group forms-det">
+                            <label for="lon" class="forms-label"> Longitude </label>
+                            <input type="text" formControlName="lon" class="form-control">
+                        </div>
+                    </fieldset>
+                </fieldset>
+                <fieldset formGroupName="company">
+                    <legend> Company </legend>
+                    <div class="form-group forms-det">
+                        <label for="name" class="forms-label"> Name </label>
+                        <input type="text" formControlName="name" class="form-control">
+                    </div>
+                    <div class="form-group forms-det">
+                        <label for="location" class="forms-label"> Location </label>
+                        <input type="text" formControlName="location" class="form-control">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend> Password </legend>
+                    <div class="form-group forms-det">
+                        <label for="password" class="forms-label"> Password </label>
+                        <input type="text" formControlName="password" class="form-control">
+                    </div>
+                </fieldset>
+                <fieldset formGroupName="hobbies">
+                    <legend>Hobbies | <span type="button" (click)="addHobby()"> + </span></legend>
+                    <div class="input-group"
+                        *ngFor="let hobbyControl of userForm.get('hobbies')['controls']; let i = index">
+                        <input type="text" class="form-control" [formControlName]="i">
+                        <span type="button" (click)="deleteHobby(i)" style="padding: 10px; -webkit-text-stroke: 4px;"> -
+                        </span>
+                    </div>
+                </fieldset>
+                <div class="forms-button">
+                    <button type="submit" class="btn1"> Submit </button>
+                    <button type="button" class="btn1" (click)="formReset()"> Reset </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

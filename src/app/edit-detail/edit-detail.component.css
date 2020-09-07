@@ -1,0 +1,30 @@
+.global-css {
+    width: 100%;
+    height: 100vh;
+    background-color: crimson;
+}
+
+.mat-css {
+    background-color: dimgray;
+}
+
+.mat-css-2 {
+    background-color: maroon;
+    color: cornsilk;
+}
+
+.input-group{
+    margin-bottom: 5px;
+}
+
+.dot{
+    height: 200px ;
+    width: 200px;
+    background-color: grey;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.btn1{
+    border-radius: 10px;
+}

@@ -1,0 +1,46 @@
+.form-css {
+    border: 2px solid black; 
+    background-color: wheat;
+}
+
+.forms-det {
+    background-color: lightgray;
+    border-radius: 0px;
+    padding: 5px;
+}
+
+.forms-label {
+    font-size: 20px;
+    font-family: monospace;
+    /* padding-bottom: 10px; */
+}
+
+.btn1{
+    width: 20%;
+    height: 40%;
+    margin: 10px;
+    font-family: dosis;
+    border-radius: 5px;
+    padding: 4px 5px;
+}
+
+.btn1:hover{
+    content: 'hello';
+    background: black;
+    color: cornsilk;
+}
+
+.error-msg {
+    margin: 0px !important;
+    box-sizing: border-box !important;
+    font-family: sans-serif !important;
+    font-size: 15px !important;
+    font-weight: bold;
+    background-color: rgb(255, 200, 200) !important;
+}
+
+.ng-touched .ng-invalid {
+    border: 1px solid red;
+}
+
+

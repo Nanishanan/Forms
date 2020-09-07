@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* body{
+    background-color: dimgray !important;
+} */
+
+@font-face{
+    font-family: dancingScript;
+    src: url(C:\Users\NareshM\Documents\CSS\DancingScript-VariableFont_wght.ttf);
+    
+}
+
+@font-face{
+    font-family: courgette;
+    src: url(C:\Users\NareshM\Documents\CSS\Courgette\Courgette-Regular.ttf);
+}
+
+@font-face{
+    font-family: dosis;
+    src: url(C:\Users\NareshM\Documents\CSS\Dosis\Dosis-VariableFont_wght.ttf);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

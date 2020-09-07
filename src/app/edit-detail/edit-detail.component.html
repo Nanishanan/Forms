@@ -1,0 +1,106 @@
+
+<div class="global-css" *ngIf="details?.length">  
+<form [formGroup]="editform" (ngSubmit)="updateDetails()">
+    <mat-card class="mat-css">
+        <mat-card-header>
+            <div mat-card-avatar class="mat-card-image"></div>
+            <mat-card-title> Profile </mat-card-title>
+        </mat-card-header>
+        <div class="row">
+            <div class="col-8">
+                <mat-card-content>
+                    <input type="text" formControlName="name" class="form-control">
+                    <br> <br>
+                    <fieldset formGroupName="company">
+                    <h3> Company: </h3>
+                    <input type="text" formControlName="cname" class="form-control" >
+                    <br>
+                    <input type="text" formControlName="location" class="form-control">
+                    </fieldset>
+                </mat-card-content>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-3">
+                <mat-card-content>
+                    <span class="dot"> </span>
+                    <input class="btn1" type="file" (change)="onFileChanged($event)">
+                </mat-card-content>
+            </div>
+        </div>
+    </mat-card>
+    <div class="row mt-3">
+        <div class="col-5">
+            <mat-card class="mat-css-2">  
+                <fieldset formGroupName="address">
+                Address
+                <div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Street: </h4>
+                        </div>
+                        <div class="col">
+                            <input type="text" formControlName="street" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> City: </h4>
+                        </div>
+                        <div class="col">
+                            <input type="text" formControlName="city" class="form-control">
+                        </div>
+                    </div>
+                    <fieldset formGroupName="geo">
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Latitude: </h4>
+                        </div>
+                        <div class="col">
+                            <input type="text" formControlName="lat" class="form-control">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Longitude: </h4>
+                        </div>
+                        <div class="col">
+                            <input type="text" formControlName="lon" class="form-control">
+                        </div>
+                    </div>
+                    </fieldset>
+                </div>
+                </fieldset>
+            </mat-card>
+        </div>
+        <div class="col-3">
+            <mat-card class="mat-css-2">
+              <legend>  Hobbies | <span type="button" (click)="addHobby()"> + </span></legend>
+                <fieldset formGroupName="hobbies">
+                    <div class="input-group" *ngFor="let hobbyControl of editform.get('hobbies')['controls']; let i = index">
+                        <input type="text" [formControlName]="i" class="form-control"> 
+                        <span type="button" class="material-icons" (click)="deleteHobby(i)">delete</span>
+                    </div>
+                </fieldset>
+            </mat-card>
+        </div>
+        <div class="col-4">
+            <mat-card class="mat-css-2"> 
+                Contact
+                <div>
+                    <input type="text" formControlName="phone" class="form-control">
+                    <div class="error-msg" *ngIf="phone.touched && phone.invalid">
+                        <p *ngIf="phone.errors.required"> Phone Number is Mandatory </p>
+                        <p *ngIf="phone.errors.minlength"> Phone Number should be 10 digits </p>
+                        <p *ngIf="phone.errors.maxlength"> Phone Number should be 10 digits </p>
+                        <p *ngIf="phone.errors.pattern"> Phone Number should be only in digits </p>
+                    </div>
+                    <br>
+                    <input type="text" formControlName="email" class="form-control">
+                </div>                
+            </mat-card>
+            <br> <br>
+            <button class="material-icons edit-css" type="submit" > save </button>
+        </div>
+    </div>
+</form>
+</div>

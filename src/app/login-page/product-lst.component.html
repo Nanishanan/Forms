@@ -1,0 +1,37 @@
+<div class="global-css">
+<h1 class="form-header"> Google Forms </h1>
+
+<div class="row mx-4">
+    <div class="col-12 col-md-4 offset-md-4 px-0">
+        
+<form #formdet="ngForm" (ngSubmit)="submit(formdet)" style="border:3px solid black;" id="loginForm"> 
+    <div class="form-control forms-det" > 
+        <label for="username" class = "forms-label"> Username </label> 
+        <br>
+        <input required type="text" name="username" ngModel #name="ngModel"> 
+        <span *ngIf="name.invalid && !name.dirty" >
+            <p *ngIf="name.touched && name.invalid" class="error-msg"> Please type a name </p>
+        </span>
+        <span *ngIf="name.invalid && name.dirty" >
+            <p *ngIf="name.touched && name.dirty" class="error-msg"> UserName Unavailable </p>
+        </span>
+    </div>
+    <div class="form-control forms-det"> 
+        <label for="password" class="forms-label"> Password </label> 
+        <br>
+        <input required type="password" name="password" ngModel #password="ngModel" >
+        <span *ngIf="password.invalid && !password.dirty" >
+            <p *ngIf="password.touched && password.invalid" class="error-msg"> Password required </p>
+        </span>
+        <span *ngIf="password.invalid && password.dirty" >
+            <p *ngIf="password.touched && password.invalid" class="error-msg"> Password Invalid </p>
+        </span>
+    </div>
+    <div class="forms-button">
+        <button type="submit" class="btn1" [disabled]="formdet.invalid" > Login </button>
+        <button class="btn1" (click)="registerClicked($event)"> Register </button>
+    </div>
+</form>
+</div>
+</div>
+</div>

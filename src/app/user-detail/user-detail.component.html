@@ -1,0 +1,87 @@
+
+<div class="global-css" *ngIf="details?.length"> 
+    <mat-card class="mat-css">
+        <mat-card-header>
+            <div mat-card-avatar class="mat-card-image"></div>
+            <mat-card-title> Profile </mat-card-title>
+        </mat-card-header>
+        <div class="row">
+            <div class="col-8">
+                <mat-card-content>
+                    <h1> {{ details[0].name }} </h1>
+                    <br> <br>
+                    <h3> Company: </h3>
+                    <h4 style="text-indent: 50px;"> <span class="material-icons"> work </span>
+                        {{ details[0].company.cname }} </h4>
+                    <h4 style="text-indent: 50px;"> <span class="material-icons"> location_on </span>
+                        {{ details[0].company.location }} </h4>
+                </mat-card-content>
+            </div>
+            <div class="col-4">
+                <mat-card-content>
+                    <span class="dot"></span>
+                </mat-card-content>
+            </div>
+        </div>
+    </mat-card>
+    <div class="row mt-3">
+        <div class="col-5">
+            <mat-card class="mat-css-2">  
+                Address
+                <div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Street: </h4>
+                        </div>
+                        <div class="col">
+                            <h5 style="padding-top: 3px;"> {{ details[0].address.street }} </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> City: </h4>
+                        </div>
+                        <div class="col">
+                            <h5 style="padding-top: 3px;"> {{ details[0].address.city }} </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Latitude: </h4>
+                        </div>
+                        <div class="col">
+                            <h5 style="padding-top: 3px;"> {{ details[0].address.geo.lat }} </h5>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-3">
+                            <h4> Longitude: </h4>
+                        </div>
+                        <div class="col">
+                            <h5 style="padding-top: 3px;"> {{ details[0].address.geo.lon }} </h5>
+                        </div>
+                    </div>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-3">
+            <mat-card class="mat-css-2">
+                Hobbies
+                <div *ngFor="let hobby of details[0].hobbies">
+                    <h4> {{ hobby }} </h4>
+                </div>
+            </mat-card>
+        </div>
+        <div class="col-4">
+            <mat-card class="mat-css-2"> 
+                Contact
+                <div>
+                    <h5> <span class="material-icons">phone</span> {{details[0].phone}} </h5>
+                    <h6> <span class="material-icons">email</span> {{details[0].email}} </h6>
+                </div>                
+            </mat-card>
+            <br> <br>
+            <span class="material-icons edit-css" type="button" (click)="updateDetails()"> edit </span>
+        </div>
+    </div>
+</div>
